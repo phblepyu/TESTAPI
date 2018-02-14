@@ -19,22 +19,10 @@
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler;
 
 use LINE\LINEBot;
-use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LINE\LINEBot\KitchenSink\EventHandler;
-use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
-use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
-use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
+
+use Predis\Client;
 
 class TextMessageHandler implements EventHandler
 {
@@ -46,6 +34,8 @@ class TextMessageHandler implements EventHandler
     private $req;
     /** @var TextMessage $textMessage */
     private $textMessage;
+
+    private $redis;
 
     /**
      * TextMessageHandler constructor.
@@ -60,9 +50,52 @@ class TextMessageHandler implements EventHandler
         $this->logger = $logger;
         $this->req = $req;
         $this->textMessage = $textMessage;
+        $this->redis = new Client(getenv('REDIS_URL'));
     }
 
     public function handle()
     {
-      
+        $TEACH_SIGN = '==';
+        $text = $this->textMessage->getText();
+        $text = trim($text);
+        # Remove ZWSP
+        $text = str_replace("\xE2\x80\x8B", "", $text);
+        $replyToken = $this->textMessage->getReplyToken();
+
+        if ($text == 'บอท') {
+            $this->bot->replyText($replyToken, $out =
+                "ใช้ $TEACH_SIGN เพื่อสอนเราได้นะ\nเช่น สวัสดี" . $TEACH_SIGN . "สวัสดีชาวโลก");
+            return true;
+        }
+
+        $sep_pos = strpos($text, $TEACH_SIGN);
+        if ($sep_pos > 0) {
+            $text_arr = explode($TEACH_SIGN, $text, 2);
+            if (count($text_arr) == 2) {
+                $this->saveResponse($text_arr[0], $text_arr[1]);
+            }
+            return true;
+        }
+
+        $re = $this->getResponse($text);
+        $re_count = count($re);
+        if ($re_count > 0) {
+            // Random response.
+            $randNum = rand(0, $re_count - 1);
+            $response = $re[$randNum];
+            $this->bot->replyText($replyToken, $response);
+            return true;
+        }
+        return false;
+    }
+
+    private function saveResponse($keyword, $response)
+    {
+        $this->redis->lpush("response:$keyword", $response);
+    }
+
+    private function getResponse($keyword)
+    {
+        return $this->redis->lrange("response:$keyword", 0, -1);
+    }
 }
