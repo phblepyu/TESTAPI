@@ -10,7 +10,7 @@ $strUrl = "https://api.line.me/v2/bot/message/reply";
  
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {$strAccessToken}";
+$arrHeader[] = "Authorization: Bearer {jITXrS8kODVqVYpvleRFusP8rUvJ4zQjd65ARZ0fsiuJAxojWVdPYgG5bCkOCMrgvv0AiMgCwI6kFzDU6/moas/tF2AGaT7P7firyzz1AXV2Y0fFrdXnsdh6J2CQYFn5WBC/SjRCbN49JkVNCKgLKQdB04t89/1O/w1cDnyilFU=}";
  
 if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
