@@ -26,11 +26,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $json_url = "https://api.nanopool.org/v1/eth/user/0x817fb2a01d6d115a84f3abce3261d53294c30517";
-  $json = file_get_contents($json_url);
-  $json=str_replace('},]',"}]",$json);
-  $data = json_decode($json);
-  $arrPostData['messages'][0]['text'] = $data->data->balance; 
+  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.79/linebot/ethble.php');; 
 }
 else{
   $arrPostData = array();
