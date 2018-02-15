@@ -26,8 +26,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $rig = file_get_contents('https://api.nanopool.org/v1/eth/user/0x817fb2a01d6d115a84f3abce3261d53294c30517');
-  $arrPostData['messages'][0]['text'] = $rig;
+  $arrPostData['messages'][0]['text'] = file_get_contents('https://api.nanopool.org/v1/eth/user/0x817fb2a01d6d115a84f3abce3261d53294c30517');
 }
 else{
   $arrPostData = array();
