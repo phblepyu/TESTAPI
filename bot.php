@@ -26,7 +26,8 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "rigbub";
+  $homepage = file_get_contents('http://www.example.com/');
+  $arrPostData['messages'][0]['text'] = $homepage;
 }
 else{
   $arrPostData = array();
