@@ -30,7 +30,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $json = file_get_contents($json_url);
   $json=str_replace('},]',"}]",$json);
   $data = json_decode($json);
-  $arrPostData['messages'][0]['text'] = $data->data->balance; 
+  $arrPostData['messages'][0]['text'] = "แปบนะ"; 
 }
 else{
   $arrPostData = array();
