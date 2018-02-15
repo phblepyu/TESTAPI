@@ -22,12 +22,15 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
-}else if($arrJson['events'][0]['message']['text'] == "rigble"){
+}else if($arrJson['events'][0]['message']['text'] == "ethble"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $data_get  = file_get_contents('https://api.nanopool.org/v1/eth/user/0x817fb2a01d6d115a84f3abce3261d53294c30517');
-  $arrPostData['messages'][0]['text'] = $data_get->data->balance; 
+  $json_url = "https://api.nanopool.org/v1/eth/user/0x817fb2a01d6d115a84f3abce3261d53294c30517";
+  $json = file_get_contents($json_url);
+  $json=str_replace('},]',"}]",$json);
+  $data = json_decode($json);
+  $arrPostData['messages'][0]['text'] = $data->data->balance; 
 }
 else{
   $arrPostData = array();
