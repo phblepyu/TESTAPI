@@ -45,7 +45,7 @@ $result = file_get_contents($url, false, $context);
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.75/apitest/112.php'); 
+  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.75/apitest/111.php'); 
 }
  
  
