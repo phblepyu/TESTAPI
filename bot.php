@@ -20,7 +20,7 @@ $arrHeader[] = "Authorization: Bearer {jITXrS8kODVqVYpvleRFusP8rUvJ4zQjd65ARZ0fs
 }
 else{
   $ques = $arrJson['events'][0]['message']['text'];
-  $url = 'http://49.231.234.75/apitest/test.php';
+  $url = 'http://49.231.234.75/apitest/111.php';
   $data = array('field1' => $ques);
   $options = array(
         'http' => array(
@@ -35,7 +35,7 @@ $result = file_get_contents($url, false, $context);
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.75/apitest/test.php');
+  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.75/apitest/111.php');
 }
  
  
