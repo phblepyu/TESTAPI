@@ -45,10 +45,10 @@ $result = file_get_contents($url, false, $context);
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
- if ($result != ""){
-  $arrPostData['messages'][0]['text'] = $result; 
+ if ($result == ""){
+  $arrPostData['messages'][0]['text'] = "หนูยังไม่สามารถตอบคำถามนี้ได้ค่ะ"; 
  }else{
-  $arrPostData['messages'][0]['text'] = "หนูยังไม่สามารถตอบคำถามนี้ได้ค่ะ";
+  $arrPostData['messages'][0]['text'] = $result;
  }
  
 }
