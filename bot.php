@@ -26,7 +26,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.79/linebot/ethble.php');; 
+  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.79/linebot/ethble.php'); 
 }
 else{
   $ques = $arrJson['events'][0]['message']['text'];
@@ -45,7 +45,7 @@ $result = file_get_contents($url, false, $context);
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ยังไม่สามารถตอบได้ค่ะ ขอจำไว้่ก่อนนะค่ะ";
+  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.79/linebot/ethble.php'); 
 }
  
  
