@@ -16,7 +16,7 @@ $arrHeader[] = "Authorization: Bearer {jITXrS8kODVqVYpvleRFusP8rUvJ4zQjd65ARZ0fs
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['group']['userId'];
+  $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['userId'];
 }else if($arrJson['events'][0]['message']['text'] == "Ethble"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
