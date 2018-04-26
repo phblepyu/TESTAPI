@@ -29,6 +29,12 @@ else if($arrJson['events'][0]['message']['text'] == "ปฎิทิน"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.79/linebot/calendar.php'); 
 }
+else if($arrJson['events'][0]['message']['text'] == "เข้าแถว"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.79/linebot/report_line.php'); 
+}
 else{
   $ques = $arrJson['events'][0]['message']['text'];
   $url = 'http://49.231.234.75/apitest/111.php';
