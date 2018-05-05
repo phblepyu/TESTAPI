@@ -1,7 +1,8 @@
 <?php
  
 
-$strAccessToken = 'KiKz10O28Sf+gik6IISB0sT2AftWBaiSTX5IbHiiaVrtsnjrsmLMfyvXyw1J7SgYipEp1wSERbOoSZ4DO0SkeN2Q8miVPpIgayd6LRX89Uu8DNK3aBF7/Emmsst3s01QPlxZ7SzI3ysrlKeXVh+MQgdB04t89/1O/w1cDnyilFU='; 
+$strAccessToken = 'Zd3onnDe8JqbXMaQVLliIEEYQoRCgcTkCt7YglzI4MZCbm/BM5qtTchvRQPbRh6v1jTB6h93X6+ltX5G/sOl9n93BCNvJJRZXCPRCfAoXHa3Mv4hhIjYPK24PD+pHuA6TduJaSXF4/OJBA8joUcXuQdB04t89/1O/w1cDnyilFU=
+'; 
 
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
@@ -10,7 +11,8 @@ $strUrl = "https://api.line.me/v2/bot/message/reply";
  
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {KiKz10O28Sf+gik6IISB0sT2AftWBaiSTX5IbHiiaVrtsnjrsmLMfyvXyw1J7SgYipEp1wSERbOoSZ4DO0SkeN2Q8miVPpIgayd6LRX89Uu8DNK3aBF7/Emmsst3s01QPlxZ7SzI3ysrlKeXVh+MQgdB04t89/1O/w1cDnyilFU=}";
+$arrHeader[] = "Authorization: Bearer {Zd3onnDe8JqbXMaQVLliIEEYQoRCgcTkCt7YglzI4MZCbm/BM5qtTchvRQPbRh6v1jTB6h93X6+ltX5G/sOl9n93BCNvJJRZXCPRCfAoXHa3Mv4hhIjYPK24PD+pHuA6TduJaSXF4/OJBA8joUcXuQdB04t89/1O/w1cDnyilFU=
+}";
  
  if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
