@@ -1,7 +1,7 @@
 <?php
  
 
-$strAccessToken = 'Zd3onnDe8JqbXMaQVLliIEEYQoRCgcTkCt7YglzI4MZCbm/BM5qtTchvRQPbRh6v1jTB6h93X6+ltX5G/sOl9n93BCNvJJRZXCPRCfAoXHa3Mv4hhIjYPK24PD+pHuA6TduJaSXF4/OJBA8joUcXuQdB04t89/1O/w1cDnyilFU=
+$strAccessToken = 'M++qobGMoYBXVxjxuRqar+JvopHgqeTD8K4kLbMQki6fQ4bQ16XMKP/BpH8JMZmDCseYFCfKP/vwb2rsRx2sKMMVtIy4zTjfebOB8FIstJKRGoi254ldGPm1tz7+4vifF49rrnYn+OpDf6l667OAYAdB04t89/1O/w1cDnyilFU=
 '; 
 
 $content = file_get_contents('php://input');
@@ -11,51 +11,16 @@ $strUrl = "https://api.line.me/v2/bot/message/reply";
  
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {Zd3onnDe8JqbXMaQVLliIEEYQoRCgcTkCt7YglzI4MZCbm/BM5qtTchvRQPbRh6v1jTB6h93X6+ltX5G/sOl9n93BCNvJJRZXCPRCfAoXHa3Mv4hhIjYPK24PD+pHuA6TduJaSXF4/OJBA8joUcXuQdB04t89/1O/w1cDnyilFU=
+$arrHeader[] = "Authorization: Bearer {M++qobGMoYBXVxjxuRqar+JvopHgqeTD8K4kLbMQki6fQ4bQ16XMKP/BpH8JMZmDCseYFCfKP/vwb2rsRx2sKMMVtIy4zTjfebOB8FIstJKRGoi254ldGPm1tz7+4vifF49rrnYn+OpDf6l667OAYAdB04t89/1O/w1cDnyilFU=
 }";
  
- if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
+if($arrJson['events'][0]['message']['text'] != ""){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['userId'];
-}else if($arrJson['events'][0]['message']['text'] == "Ethble"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.79/linebot/ethble.php'); 
+  $arrPostData['messages'][0]['text'] = file_get_contents('http://sandbox.api.simsimi.com/request.p?key=6166fb21-d9cf-4834-93d3-1d7a9c4c8645&lc=th&ft=1.0&text=ดีจ้า'); 
 }
-else if($arrJson['events'][0]['message']['text'] == "ปฏิทิน"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.79/linebot/calendar.php'); 
-}
-else if($arrJson['events'][0]['message']['text'] == "สถิติเข้าแถว"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = file_get_contents('http://49.231.234.79/linebot/report_line.php'); 
-}
-else{
-  $ques = $arrJson['events'][0]['message']['text'];
-  $url = 'http://49.231.234.75/apitest/111.php';
-  $data = array('field1' => $ques);
-  $options = array(
-        'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data),
-    )
- );
 
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = $result;
-}
  
  
 $ch = curl_init();
