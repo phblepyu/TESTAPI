@@ -24,7 +24,7 @@ $arrHeader[] = "Authorization: Bearer {M++qobGMoYBXVxjxuRqar+JvopHgqeTD8K4kLbMQk
                  		foreach ($json_decode as $key => $value) {
                  			$message .= $value->response";
                  		}
-  $arrPostData['messages'][0]['text'] = $message; 
+  $arrPostData['messages'][0]['text'] = 'ok'; 
 }
  
  
