@@ -12,11 +12,11 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {M++qobGMoYBXVxjxuRqar+JvopHgqeTD8K4kLbMQki6fQ4bQ16XMKP/BpH8JMZmDCseYFCfKP/vwb2rsRx2sKMMVtIy4zTjfebOB8FIstJKRGoi254ldGPm1tz7+4vifF49rrnYn+OpDf6l667OAYAdB04t89/1O/w1cDnyilFU=}";
  
- if($arrJson['events'][0]['message']['text'] == "ชื่อ"){
+ if($arrJson['events'][0]['message']['text'] != ""){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['userId'];
+  $arrPostData['messages'][0]['text'] = file_get_contents('http://sandbox.api.simsimi.com/request.p?key=6166fb21-d9cf-4834-93d3-1d7a9c4c8645&lc=th&ft=1.0&text=ดีจ้า'); 
 }
  
  
