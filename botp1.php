@@ -16,7 +16,11 @@ $arrHeader[] = "Authorization: Bearer {M++qobGMoYBXVxjxuRqar+JvopHgqeTD8K4kLbMQk
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = file_get_contents('http://sandbox.api.simsimi.com/request.p?key=6166fb21-d9cf-4834-93d3-1d7a9c4c8645&lc=th&ft=1.0&text=ดีจ้า'); 
+  $json_decode = json_decode(file_get_contents('http://sandbox.api.simsimi.com/request.p?key=6166fb21-d9cf-4834-93d3-1d7a9c4c8645&lc=th&ft=1.0&text=ดีจ้า'));
+  	foreach ($json_decode as $key => $value) {
+                 			$message .= $value->response ;
+                 		}
+  $arrPostData['messages'][0]['text'] = $message; 
 }
  
  
