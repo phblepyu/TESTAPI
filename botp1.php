@@ -96,7 +96,7 @@ switch ($arrJson['events'][0]['message']['text']) {
                     'type' => 'carousel', // 類型 (旋轉木馬)
                     'columns' => array(
                         array(
-                            'thumbnailImageUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example.jpg', // 圖片網址 <不一定需要>
+                            'thumbnailImageUrl' => 'https://www.honestdocs.co/system/blog_articles/images/000/000/962/large/iStock-507375798_M.jpg', // 圖片網址 <不一定需要>
                             'title' => 'Example Menu 1', // 標題 1 <不一定需要>
                             'text' => 'Description 1', // 文字 1
                             'actions' => array(
@@ -118,7 +118,7 @@ switch ($arrJson['events'][0]['message']['text']) {
                             )
                         ),
                         array(
-                            'thumbnailImageUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example.jpg', // 圖片網址 <不一定需要>
+                            'thumbnailImageUrl' => 'http://www.manager.co.th/asp-bin/Image.aspx?ID=3363136', // 圖片網址 <不一定需要>
                             'title' => 'Example Menu 2', // 標題 2 <不一定需要>
                             'text' => 'Description 2', // 文字 2
                             'actions' => array(
