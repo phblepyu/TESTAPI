@@ -26,14 +26,14 @@ switch ($arrJson['events'][0]['message']['text']) {
                     'text' => 'กรุณาเลือก',
                     'actions' => array(
                         array(
-                            'type' => 'postback',
+                            'type' => 'message',
                             'label' => 'เด็ก', 
-                            'data' => 'action=buy&itemid=123'
+                            'data' => 'เด็ก'
                         ),
                         array(
                             'type' => 'message', 
                             'label' => 'ผู้ใหญ่', 
-                            'text' => 'Message example' 
+                            'text' => 'ผู้ใหญ่'
                         )
                
                     )
