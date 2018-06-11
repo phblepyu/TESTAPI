@@ -13,7 +13,6 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {M++qobGMoYBXVxjxuRqar+JvopHgqeTD8K4kLbMQki6fQ4bQ16XMKP/BpH8JMZmDCseYFCfKP/vwb2rsRx2sKMMVtIy4zTjfebOB8FIstJKRGoi254ldGPm1tz7+4vifF49rrnYn+OpDf6l667OAYAdB04t89/1O/w1cDnyilFU=}";
  
 if($arrJson['events'][0]['message']['text'] == "เป็นไข้"){
- {
   "type": "template",
   "altText": "This is a buttons template",
   "template": {
@@ -47,7 +46,6 @@ if($arrJson['events'][0]['message']['text'] == "เป็นไข้"){
           }
       ]
   }
-}
 }else{
   $ques = $arrJson['events'][0]['message']['text'];
   $url = 'http://49.231.234.75/apitest/sibely.php';
