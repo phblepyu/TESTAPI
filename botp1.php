@@ -16,31 +16,26 @@ switch ($arrJson['events'][0]['message']['text']) {
   case 'เป็นไข้':
    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-   $arrPostData['messages'][0] = array('type' => 'sticker', 'packageId' => 1,'stickerId' => 100 );
    $arrPostData['messages'][0] = array(
                 'type' => 'template',
-                'altText' => 'Example buttons template', 
+                'altText' => 'ปวดหัวเป็นไข้', 
                 'template' => array(
                     'type' => 'buttons',
-                    'thumbnailImageUrl' => 'https://api.reh.tw/line/bot/example/assets/images/example.jpg',
-                    'title' => 'Example Menu', 
-                    'text' => 'Please select',
+                    'thumbnailImageUrl' => 'https://www.maerakluke.com/wp-content/uploads/2014/01/86595475214.jpg',
+                    'title' => 'เป็นไข้', 
+                    'text' => 'กรุณาเลือก',
                     'actions' => array(
                         array(
                             'type' => 'postback',
-                            'label' => 'Postback example', 
+                            'label' => 'เด็ก', 
                             'data' => 'action=buy&itemid=123'
                         ),
                         array(
                             'type' => 'message', 
-                            'label' => 'Message example', 
+                            'label' => 'ผู้ใหญ่', 
                             'text' => 'Message example' 
-                        ),
-                        array(
-                            'type' => 'uri', 
-                            'label' => 'Uri example', 
-                            'uri' => 'https://github.com/GoneTone/line-example-bot-php' 
                         )
+               
                     )
                 )
             );
