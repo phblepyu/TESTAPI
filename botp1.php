@@ -12,41 +12,27 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {M++qobGMoYBXVxjxuRqar+JvopHgqeTD8K4kLbMQki6fQ4bQ16XMKP/BpH8JMZmDCseYFCfKP/vwb2rsRx2sKMMVtIy4zTjfebOB8FIstJKRGoi254ldGPm1tz7+4vifF49rrnYn+OpDf6l667OAYAdB04t89/1O/w1cDnyilFU=}";
  
-if($arrJson['events'][0]['message']['text'] == "ชื่อ"){
-   $arrPostData = array();
+switch ($arrJson['events'][0]['message']['text']) {
+  case 'ชื่อ':
+    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
    $arrPostData['messages'][0]['type'] = "text";
    $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['userId'];
-}
-if($arrJson['events'][0]['message']['text'] == "ที่ตั้ง"){
-   $arrPostData = array();
+    break;
+  case 'ที่ตั้ง':
+    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
    $arrPostData['messages'][0]['type'] = 'location';
    $arrPostData['messages'][0]['title'] = 'PharmaMix';
    $arrPostData['messages'][0]['address'] ='PharmaMix';
    $arrPostData['messages'][0]['latitude'] = 18.725752;
    $arrPostData['messages'][0]['longitude'] = 98.958495;
+    break;
+  default:
+    // code...
+    break;
 }
 
-
-else{
-  $ques = $arrJson['events'][0]['message']['text'];
-  $url = 'http://49.231.234.75/apitest/sibely.php';
-  $data = array('field1' => $ques);
-  $options = array(
-        'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data),
-    )
- );
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = $result;
-}
  
  
 $ch = curl_init();
