@@ -16,9 +16,9 @@ switch ($arrJson['events'][0]['message']['text']) {
   case 'เป็นไข้':
    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-   $arrPostData['messages'][0]['type'] = 'sticker';
-   $arrPostData['messages'][0]['packageId'] = '1';
-   $arrPostData['messages'][0]['stickerId'] = '100';
+   $arrPostData['messages'][0] = array('type' => 'sticker', 'packageId' => 1,'stickerId' => 1 ;
+   //$arrPostData['messages'][0]['packageId'] = '1';
+   //$arrPostData['messages'][0]['stickerId'] = '100';
     break;
   case 'ที่ตั้ง':
    $arrPostData = array();
