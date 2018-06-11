@@ -39,11 +39,7 @@ switch ($arrJson['events'][0]['message']['text']) {
                     )
                 )
             );
-            if($arrJson['events'][0]['message']['template']['action']['text'] == 'เด็ก'){
-               $arrPostData['messages'][0]['type'] = "text";
-               $arrPostData['messages'][0]['text'] = "อายุเท่าไหร";
-            
-            }
+           
     break;
   case 'เจ็บคอ':
    $arrPostData = array();
@@ -72,6 +68,14 @@ switch ($arrJson['events'][0]['message']['text']) {
    //$arrPostData['messages'][0]['packageId'] = '1';
    //$arrPostData['messages'][0]['stickerId'] = '100';
     break;
+  
+ case 'เด็ก' :
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "อายุเท่าไหร";
+  break;
+  
   case 'ที่ตั้ง':
    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
