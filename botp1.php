@@ -48,17 +48,17 @@ switch ($arrJson['events'][0]['message']['text']) {
                 'altText' => 'Example confirm template', // 替代文字
                 'template' => array(
                     'type' => 'confirm', // 類型 (確認)
-                    'text' => 'Are you sure?', // 文字
+                    'text' => 'มีเสมหะไหม?', // 文字
                     'actions' => array(
                         array(
                             'type' => 'message', // 類型 (訊息)
                             'label' => 'Yes', // 標籤 1
-                            'text' => 'Yes' // 用戶發送文字 1
+                            'text' => 'ใช่' // 用戶發送文字 1
                         ),
                         array(
                             'type' => 'message', // 類型 (訊息)
                             'label' => 'No', // 標籤 2
-                            'text' => 'No' // 用戶發送文字 2
+                            'text' => 'ไม่' // 用戶發送文字 2
                         )
                     )
                 )
