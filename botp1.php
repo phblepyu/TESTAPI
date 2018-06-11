@@ -22,9 +22,10 @@ if($arrJson['events'][0]['message']['text'] == "เป็นไข้"){
    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
    $arrPostData['messages'][0]['type'] = 'location';
-   $arrPostData['messages'][0]['address'] ='PharmaMix';
-   $arrPostData['messages'][0]['latitude'] ='18.725752';
-   $arrPostData['messages'][0]['longitude'] ='98.958495';
+   $arrPostData['messages'][0]['title'] = 'Example location';
+   $arrPostData['messages'][0]['address'] ='台灣高雄市三民區大昌一路 98 號 (立志中學)';
+   $arrPostData['messages'][0]['latitude'] = 18.725752;
+   $arrPostData['messages'][0]['longitude'] = 98.958495;
 }
 else{
   $ques = $arrJson['events'][0]['message']['text'];
