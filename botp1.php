@@ -118,7 +118,7 @@ switch ($arrJson['events'][0]['message']['text']) {
                             )
                         ),
                         array(
-                            'thumbnailImageUrl' => 'http://www.manager.co.th/asp-bin/Image.aspx?ID=3363136', // 圖片網址 <不一定需要>
+                            'thumbnailImageUrl' => 'https://www.aroka108.com/wp-content/uploads/2015/07/luki-01.jpg', // 圖片網址 <不一定需要>
                             'title' => 'Example Menu 2', // 標題 2 <不一定需要>
                             'text' => 'Description 2', // 文字 2
                             'actions' => array(
