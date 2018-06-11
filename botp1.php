@@ -27,14 +27,7 @@ if($arrJson['events'][0]['message']['text'] == "ที่ตั้ง"){
    $arrPostData['messages'][0]['latitude'] = 18.725752;
    $arrPostData['messages'][0]['longitude'] = 98.958495;
 }
-if($arrJson['events'][0]['message']['text'] == "เป็นไข้"){
-   $arrPostData = array();
-   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-   $arrPostData['messages'][0]['type'] = 'sticker';
-   $arrPostData['messages'][0]['packageId'] = 1;
-   $arrPostData['messages'][0]['stickerId'] = 100;
- 
-}
+
 
 else{
   $ques = $arrJson['events'][0]['message']['text'];
