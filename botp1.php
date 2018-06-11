@@ -17,7 +17,15 @@ if($arrJson['events'][0]['message']['text'] == "ชื่อ"){
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
    $arrPostData['messages'][0]['type'] = "text";
    $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['userId'];
-}else{
+}
+if($arrJson['events'][0]['message']['text'] == "เป็นไข้"){
+   $arrPostData = array();
+   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+   $arrPostData['messages'][0]['type'] = "image";
+   $arrPostData['messages'][0]['originalContentUrl'] ='https://api.reh.tw/line/bot/example/assets/images/example.jpg';
+   $arrPostData['messages'][0]['previewImageUrl'] ='https://api.reh.tw/line/bot/example/assets/images/example.jpg';
+}
+else{
   $ques = $arrJson['events'][0]['message']['text'];
   $url = 'http://49.231.234.75/apitest/sibely.php';
   $data = array('field1' => $ques);
