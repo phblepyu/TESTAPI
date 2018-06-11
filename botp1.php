@@ -43,7 +43,7 @@ switch ($arrJson['events'][0]['message']['text']) {
                         )
                     )
                 )
-            )
+            );
    //$arrPostData['messages'][0]['packageId'] = '1';
    //$arrPostData['messages'][0]['stickerId'] = '100';
     break;
