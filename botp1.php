@@ -132,7 +132,7 @@ switch ($arrJson['events'][0]['message']['text']) {
                         )
                     )
                 )
-            )
+            
         
             );
    //$arrPostData['messages'][0]['packageId'] = '1';
