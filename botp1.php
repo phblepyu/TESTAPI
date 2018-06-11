@@ -39,6 +39,11 @@ switch ($arrJson['events'][0]['message']['text']) {
                     )
                 )
             );
+            if($arrJson['events'][0]['message']['text'] == 'เด็ก'){
+               $arrPostData['messages'][0]['type'] = "text";
+               $arrPostData['messages'][0]['text'] = 'อายุเท่าไหร';
+            
+            }
     break;
   case 'เจ็บคอ':
    $arrPostData = array();
