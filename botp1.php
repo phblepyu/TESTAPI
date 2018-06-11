@@ -21,9 +21,10 @@ if($arrJson['events'][0]['message']['text'] == "ชื่อ"){
 if($arrJson['events'][0]['message']['text'] == "เป็นไข้"){
    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-   $arrPostData['messages'][0]['type'] = "image";
-   $arrPostData['messages'][0]['originalContentUrl'] ='https://api.reh.tw/line/bot/example/assets/images/example.jpg';
-   $arrPostData['messages'][0]['previewImageUrl'] ='https://api.reh.tw/line/bot/example/assets/images/example.jpg';
+   $arrPostData['messages'][0]['type'] = 'Example location';
+   $arrPostData['messages'][0]['address'] ='PharmaMix';
+   $arrPostData['messages'][0]['latitude'] ='18.725752';
+   $arrPostData['messages'][0]['longitude'] ='98.958495';
 }
 else{
   $ques = $arrJson['events'][0]['message']['text'];
