@@ -21,11 +21,11 @@ if($arrJson['events'][0]['message']['text'] == "ชื่อ"){
 if($arrJson['events'][0]['message']['text'] == "ที่ตั้ง"){
    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-   $arrPostData['messages'][0]['type'] = 'location';
-   $arrPostData['messages'][0]['title'] = 'PharmaMix';
-   $arrPostData['messages'][0]['address'] ='PharmaMix';
-   $arrPostData['messages'][0]['latitude'] = 18.725752;
-   $arrPostData['messages'][0]['longitude'] = 98.958495;
+   $arrPostData['messages']['type'] = 'location';
+   $arrPostData['messages']['title'] = 'PharmaMix';
+   $arrPostData['messages']['address'] ='PharmaMix';
+   $arrPostData['messages']['latitude'] = 18.725752;
+   $arrPostData['messages']['longitude'] = 98.958495;
 }
 
 else{
