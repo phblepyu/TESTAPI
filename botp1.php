@@ -52,12 +52,12 @@ switch ($arrJson['events'][0]['message']['text']) {
                     'actions' => array(
                         array(
                             'type' => 'message', // 類型 (訊息)
-                            'label' => 'Yes', // 標籤 1
+                            'label' => 'ใช่', // 標籤 1
                             'text' => 'ใช่' // 用戶發送文字 1
                         ),
                         array(
                             'type' => 'message', // 類型 (訊息)
-                            'label' => 'No', // 標籤 2
+                            'label' => 'ไม่', // 標籤 2
                             'text' => 'ไม่' // 用戶發送文字 2
                         )
                     )
