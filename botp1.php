@@ -18,7 +18,7 @@ if($arrJson['events'][0]['message']['text'] == "ชื่อ"){
    $arrPostData['messages'][0]['type'] = "text";
    $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['userId'];
 }
-if($arrJson['events'][0]['message']['text'] == "location"){
+if($arrJson['events'][0]['message']['text'] == "ที่ตั้ง"){
    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
    $arrPostData['messages'][0]['type'] = 'location';
@@ -27,15 +27,7 @@ if($arrJson['events'][0]['message']['text'] == "location"){
    $arrPostData['messages'][0]['latitude'] = 18.725752;
    $arrPostData['messages'][0]['longitude'] = 98.958495;
 }
-if($arrJson['events'][0]['message']['text'] == "เป็นไข้"){
-   $arrPostData = array();
-   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-   $arrPostData['messages'][0]['type'] = 'template';
-   $arrPostData['messages'][0]['altText'] = 'Example confirm template';
-   $arrPostData['messages'][0]['template'] = array('type' => 'confirm', 'text' => 'Are you sure?');
-   $arrPostData['messages'][0]['actions'] = array('type' => 'message','label' => 'Yes','text' => 'Yes')array('type' => 'message','label' => 'No','text' => 'No');
-   
-}
+
 else{
   $ques = $arrJson['events'][0]['message']['text'];
   $url = 'http://49.231.234.75/apitest/sibely.php';
