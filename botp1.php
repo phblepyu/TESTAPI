@@ -30,31 +30,10 @@ if($arrJson['events'][0]['message']['text'] == "ที่ตั้ง"){
 if($arrJson['events'][0]['message']['text'] == "เป็นไข้"){
    $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-   $arrPostData['messages'][0]['type'] = 'template';
-   $arrPostData['messages'][0]['altText'] = 'PharmaMix';
-   $arrPostData['messages'][0]['template']['type'] = 'buttons';
-   $arrPostData['messages'][0]['template']['thumbnailImageUrl'] = 'https://api.reh.tw/line/bot/example/assets/images/example.jpg';
-   $arrPostData['messages'][0]['template']['title'] = 'Example Menu';
-   $arrPostData['messages'][0]['template']['text'] = 'Please select';
-   $arrPostData['messages'][0]['template']['action'] = [
-                             {'type' => 'postback',
-                            'label' => 'Postback example',
-                            'data' => 'action=buy&itemid=123'},
-                           {
-                           'type' => 'message', 
-                            'label' => 'Message example',  
-                            'text' => 'Message example'
-                           },
-                           {
-                           'type' => 'uri',  
-                            'label' => 'Uri example',  
-                            'uri' => 'https://github.com/GoneTone/line-example-bot-php'
-                           
-                           }
-                            ];
+   $arrPostData['messages'][0]['type'] = 'sticker';
+   $arrPostData['messages'][0]['packageId'] = 1;
+   $arrPostData['messages'][0]['stickerId'] = 100;
  
-   $arrPostData['messages'][0]['latitude'] = 18.725752;
-   $arrPostData['messages'][0]['longitude'] = 98.958495;
 }
 
 else{
