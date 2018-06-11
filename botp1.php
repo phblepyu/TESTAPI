@@ -13,11 +13,16 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {M++qobGMoYBXVxjxuRqar+JvopHgqeTD8K4kLbMQki6fQ4bQ16XMKP/BpH8JMZmDCseYFCfKP/vwb2rsRx2sKMMVtIy4zTjfebOB8FIstJKRGoi254ldGPm1tz7+4vifF49rrnYn+OpDf6l667OAYAdB04t89/1O/w1cDnyilFU=}";
  
 switch ($arrJson['events'][0]['message']['text']) {
-  case 'ชื่อ':
+  case 'เป็นไข้':
     $arrPostData = array();
    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-   $arrPostData['messages'][0]['type'] = "text";
-   $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['userId'];
+   $arrPostData['messages'][0]['type'] = "template";
+   $arrPostData['messages'][0]['altText'] = 'Example confirm template';
+   $arrPostData['messages'][0]['template']['type'] = 'confirm';
+  $arrPostData['messages'][0]['template']['text'] = 'Are you sure?';
+   $arrPostData['messages'][0]['template']['actions']['type'] = 'message';
+   $arrPostData['messages'][0]['template']['actions']['label'] = 'Yes';
+  $arrPostData['messages'][0]['template']['actions']['text'] = 'Yes';
     break;
   case 'ที่ตั้ง':
     $arrPostData = array();
