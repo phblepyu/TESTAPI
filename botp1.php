@@ -28,7 +28,7 @@ switch ($arrJson['events'][0]['message']['text']) {
                         array(
                             'type' => 'message',
                             'label' => 'เด็ก', 
-                            'data' => 'เด็ก'
+                            'text' => 'เด็ก'
                         ),
                         array(
                             'type' => 'message', 
