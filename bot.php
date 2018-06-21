@@ -37,8 +37,9 @@ else if($arrJson['events'][0]['message']['text'] == "สถิติเข้า
 }
 else{
   $ques = $arrJson['events'][0]['message']['text'];
+  $userid = $arrJson['events'][0]['source']['userId'];
   $url = 'http://49.231.234.75/apitest/111.php';
-  $data = array('field1' => $ques);
+  $data = array('field1' => $ques,'field2' => $userid);
   $options = array(
         'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
